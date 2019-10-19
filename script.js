@@ -13,11 +13,16 @@ var totalScores = [];
 var roundScores = [];
 
 
-
+function getRandomDiceNumber() {
+	var randomRoundedNumber = ((Math.random()) * 6) + 1;
+	var floorNum = Math.floor(randomRoundedNumber);
+	return floorNum;
+}
 
 function rollDice() {
 	document.querySelector('.btn-roll').addEventListener('click', function() {
-		console.log("hello");
+		var diceNumber = getRandomDiceNumber();
+		console.log(diceNumber);
 	}); 
 }
 
