@@ -9,9 +9,30 @@ GAME RULES:
 
 */
 
-var totalScores = [];
-var roundScores = [];
+var playerOne = {
+	totalScore: 0,
+	roundScore: 0
+};
 
+var playerTwo = {
+	totalScore: 0,
+	roundScore: 0	
+};
+
+var newGameBtn = document.querySelector('.btn-new');
+var rollDiceBtn = document.querySelector('.btn-roll');
+
+var playerTotalScores = document.querySelectorAll('.player-score');
+var playerRoundScores = document.querySelectorAll('.player-current-score');
+
+function resetGame() {
+	newGameBtn.addEventListener('click', function() {
+		playerTotalScores[0].textContent = playerOne.totalScore;
+		playerTotalScores[1].textContent = playerTwo.totalScore;
+		playerRoundScores[0].textContent = playerOne.roundScore;
+		playerRoundScores[1].textContent = playerTwo.roundScore;
+	});
+}
 
 function getRandomDiceNumber() {
 	var randomRoundedNumber = ((Math.random()) * 6) + 1;
@@ -19,10 +40,17 @@ function getRandomDiceNumber() {
 }
 
 function rollDice() {
-	document.querySelector('.btn-roll').addEventListener('click', function() {
+	rollDiceBtn.addEventListener('click', function() {
 		var diceNumber = getRandomDiceNumber();
 		document.querySelector('.dice').src='./assets/dice-images/dice-' + diceNumber + '.png';
+		return diceNumber;
 	});
 }
 
+function addRunningScore() {
+
+}
+
+
 rollDice();
+resetGame();
