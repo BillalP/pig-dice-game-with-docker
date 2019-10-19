@@ -15,15 +15,14 @@ var roundScores = [];
 
 function getRandomDiceNumber() {
 	var randomRoundedNumber = ((Math.random()) * 6) + 1;
-	var floorNum = Math.floor(randomRoundedNumber);
-	return floorNum;
+	return floorNum = Math.floor(randomRoundedNumber);
 }
 
 function rollDice() {
 	document.querySelector('.btn-roll').addEventListener('click', function() {
 		var diceNumber = getRandomDiceNumber();
-		console.log(diceNumber);
-	}); 
+		document.querySelector('.dice').src='./assets/dice-images/dice-' + diceNumber + '.png';
+	});
 }
 
 rollDice();
