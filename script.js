@@ -30,14 +30,20 @@ var playerTotalScores = document.querySelectorAll('.player-score');
 var playerRoundScores = document.querySelectorAll('.player-current-score');
 
 var diceNumber;
+
 var runningTotalScore = null;
+var roundScore = null;
 
 function resetGame() {
 	newGameBtn.addEventListener('click', function() {
-		playerTotalScores[0].textContent = playerOne.totalScore;
-		playerTotalScores[1].textContent = playerTwo.totalScore;
-		playerRoundScores[0].textContent = playerOne.roundScore;
-		playerRoundScores[1].textContent = playerTwo.roundScore;
+		// playerTotalScores[0].textContent = players[0].totalScore;
+		// playerTotalScores[1].textContent = players[1].totalScore;
+		// playerRoundScores[0].textContent = players[0].roundScore;
+		// playerRoundScores[1].textContent = players[1].roundScore;
+		playerTotalScores[0].textContent = 0;
+		playerTotalScores[1].textContent = 0;
+		playerRoundScores[0].textContent = 0;
+		playerRoundScores[1].textContent = 0;
 	});
 }
 
@@ -50,15 +56,23 @@ function rollDice() {
 	rollDiceBtn.addEventListener('click', function() {
 		diceNumber = getRandomDiceNumber();
 		document.querySelector('.dice').src='./assets/dice-images/dice-' + diceNumber + '.png';
-		runningTotalScore += diceNumber;
+		if (diceNumber !== 1) {
+			roundScore += diceNumber;
+		} else {
+			roundScore = 0;
+			playerTotalScores[0].textContent += roundScore;
+			// and change turns 
+		}
 	});
 }
 
 function holdRoundScore() {
 	holdBtn.addEventListener('click', function() {
 		players[0].totalScore = runningTotalScore;
+		// switch active player symbol
+		document.querySelector('.player-0-panel.active').className = "player-0-panel";
+		document.querySelector('.player-1-panel').className = "player-1-panel active";
 	});
-	
 }
 
 
