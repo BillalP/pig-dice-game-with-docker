@@ -70,6 +70,8 @@ function rollDice() {
 
 function holdRoundScore() {
 	holdBtn.addEventListener('click', function() {
+		currentTotalScore = document.querySelector('.active > .player-score').innerHTML;
+		console.log('newTotalScore: ' + currentTotalScore);
 		runningTotalScore += roundScore;
 		var totalScore = document.querySelector('.active > .player-score');
 		totalScore.innerHTML = runningTotalScore;
@@ -77,7 +79,6 @@ function holdRoundScore() {
 		activeRoundScores.innerHTML = 0;
 		
 		roundScore = 0;
-		runningTotalScore = 0;
 		togglePlayerTurn();
 	});
 }
