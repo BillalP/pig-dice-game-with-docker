@@ -52,10 +52,12 @@ function rollDice() {
 		diceImage.src='./assets/dice-images/dice-' + diceNumber + '.png';
 		if (diceNumber !== 1) {
 			roundScore += diceNumber;
-			var te = roundScore.toString();
-			playerRoundScores[0].innerHTML(roundScore);
+			var roundScoreString = roundScore.toString();
+			playerRoundScores[0].innerHTML = roundScore;
 		} else {
 			roundScore = 0;
+			var roundScoreString = roundScore.toString();
+			playerRoundScores[0].innerHTML = roundScoreString;
 			togglePlayerTurn();
 		}
 	});
@@ -63,12 +65,16 @@ function rollDice() {
 
 function holdRoundScore() {
 	holdBtn.addEventListener('click', function() {
-		runningTotalScore = runningTotalScore;
-		// player
+		runningTotalScore += roundScore;
+		playerTotalScores[0].textContent = runningTotalScore;
+		playerRoundScores[0].innerHTML = 0;
 		togglePlayerTurn();
 	});
 }
 
+function displayeWinner() {
+	
+}
 
 // Functions
 rollDice();
