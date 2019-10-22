@@ -31,11 +31,15 @@ var roundScore = null;
 
 function resetGame() {
 	newGameBtn.addEventListener('click', function() {
-		playerTotalScores[0].textContent = 0;
-		playerTotalScores[1].textContent = 0;
-		playerRoundScores[0].textContent = 0;
-		playerRoundScores[1].textContent = 0;
+		resetScores();
 	});
+}
+
+function resetScores() {
+	playerTotalScores[0].textContent = 0;
+	playerTotalScores[1].textContent = 0;
+	playerRoundScores[0].textContent = 0;
+	playerRoundScores[1].textContent = 0;
 }
 
 function getRandomDiceNumber() {
@@ -70,15 +74,22 @@ function rollDice() {
 
 function holdRoundScore() {
 	holdBtn.addEventListener('click', function() {
-		currentTotalScore = document.querySelector('.active > .player-score').innerHTML;
-		console.log('newTotalScore: ' + currentTotalScore);
-		runningTotalScore += roundScore;
+		currentTotalScore = parseInt(document.querySelector('.active > .player-score').innerHTML);
+		runningTotalScore = roundScore + currentTotalScore;
+		console.log('runningTotalScore ' + runningTotalScore);
+
 		var totalScore = document.querySelector('.active > .player-score');
 		totalScore.innerHTML = runningTotalScore;
 		var activeRoundScores = document.querySelector('.active > .player-current-box > .player-current-score');
 		activeRoundScores.innerHTML = 0;
 		
 		roundScore = 0;
+
+		if (totalScore.innerHTML >= 100) {
+			alert('Winner');
+			resetScores();
+		};
+
 		togglePlayerTurn();
 	});
 }
