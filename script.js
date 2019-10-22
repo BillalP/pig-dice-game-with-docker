@@ -19,6 +19,8 @@ var diceImage = document.querySelector('.dice');
 var playerOnePanel = document.querySelector('.player-0-panel');
 var playerTwoPanel = document.querySelector('.player-1-panel');
 
+// var totalScore = document.querySelector('.active > .player-score');
+
 var playerTotalScores = document.querySelectorAll('.player-score');
 var playerRoundScores = document.querySelectorAll('.player-current-score');
 
@@ -87,8 +89,7 @@ function holdRoundScore() {
 		roundScore = 0;
 
 		if (totalScore.innerHTML >= 100) {
-			alert('Winner');
-			resetScores();
+			displayWinner();
 		};
 
 		togglePlayerTurn();
@@ -96,7 +97,8 @@ function holdRoundScore() {
 }
 
 function displayWinner() {
-
+	resetScores();
+	document.querySelector('.active > .player-name').innerText = 'Winner';
 }
 
 // Functions
