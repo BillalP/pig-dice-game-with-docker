@@ -22,6 +22,8 @@ var playerTwoPanel = document.querySelector('.player-1-panel');
 var playerTotalScores = document.querySelectorAll('.player-score');
 var playerRoundScores = document.querySelectorAll('.player-current-score');
 
+// var activeRoundScores = document.querySelector('.active > .player-current-box > .player-current-score');
+
 var diceNumber;
 
 var runningTotalScore = null;
@@ -53,11 +55,14 @@ function rollDice() {
 		if (diceNumber !== 1) {
 			roundScore += diceNumber;
 			var roundScoreString = roundScore.toString();
-			playerRoundScores[0].innerHTML = roundScore;
+			// Update
+			var activeRoundScores = document.querySelector('.active > .player-current-box > .player-current-score');
+			activeRoundScores.innerHTML = roundScore;
 		} else {
 			roundScore = 0;
 			var roundScoreString = roundScore.toString();
-			playerRoundScores[0].innerHTML = roundScoreString;
+			var activeRoundScores = document.querySelector('.active > .player-current-box > .player-current-score');
+			activeRoundScores.innerHTML = roundScoreString;
 			togglePlayerTurn();
 		}
 	});
@@ -66,14 +71,19 @@ function rollDice() {
 function holdRoundScore() {
 	holdBtn.addEventListener('click', function() {
 		runningTotalScore += roundScore;
-		playerTotalScores[0].textContent = runningTotalScore;
-		playerRoundScores[0].innerHTML = 0;
+		var totalScore = document.querySelector('.active > .player-score');
+		totalScore.innerHTML = runningTotalScore;
+		var activeRoundScores = document.querySelector('.active > .player-current-box > .player-current-score');
+		activeRoundScores.innerHTML = 0;
+		
+		roundScore = 0;
+		runningTotalScore = 0;
 		togglePlayerTurn();
 	});
 }
 
 function displayeWinner() {
-	
+
 }
 
 // Functions
