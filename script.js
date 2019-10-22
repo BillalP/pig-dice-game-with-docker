@@ -22,16 +22,15 @@ var playerTwoPanel = document.querySelector('.player-1-panel');
 var playerTotalScores = document.querySelectorAll('.player-score');
 var playerRoundScores = document.querySelectorAll('.player-current-score');
 
-// var activeRoundScores = document.querySelector('.active > .player-current-box > .player-current-score');
-
 var diceNumber;
 
 var runningTotalScore = null;
 var roundScore = null;
 
-function resetGame() {
+function newGame() {
 	newGameBtn.addEventListener('click', function() {
 		resetScores();
+		diceImage.style.display = 'block';
 	});
 }
 
@@ -48,8 +47,8 @@ function getRandomDiceNumber() {
 }
 
 function togglePlayerTurn() {
-	playerOnePanel.classList.toggle("active");
-	playerTwoPanel.classList.toggle("active");
+	playerOnePanel.classList.toggle('active');
+	playerTwoPanel.classList.toggle('active');
 }
 
 function rollDice() {
@@ -58,15 +57,13 @@ function rollDice() {
 		diceImage.src='./assets/dice-images/dice-' + diceNumber + '.png';
 		if (diceNumber !== 1) {
 			roundScore += diceNumber;
-			var roundScoreString = roundScore.toString();
-			// Update
+
 			var activeRoundScores = document.querySelector('.active > .player-current-box > .player-current-score');
 			activeRoundScores.innerHTML = roundScore;
 		} else {
 			roundScore = 0;
-			var roundScoreString = roundScore.toString();
 			var activeRoundScores = document.querySelector('.active > .player-current-box > .player-current-score');
-			activeRoundScores.innerHTML = roundScoreString;
+			activeRoundScores.innerHTML = roundScore;
 			togglePlayerTurn();
 		}
 	});
@@ -74,33 +71,35 @@ function rollDice() {
 
 function holdRoundScore() {
 	holdBtn.addEventListener('click', function() {
-		currentTotalScore = parseInt(document.querySelector('.active > .player-score').innerHTML);
-		runningTotalScore = roundScore + currentTotalScore;
-		console.log('runningTotalScore ' + runningTotalScore);
-
 		var totalScore = document.querySelector('.active > .player-score');
+		currentTotalScore = parseInt(totalScore.innerHTML);
+
+		runningTotalScore = roundScore + currentTotalScore;
 		totalScore.innerHTML = runningTotalScore;
+
 		var activeRoundScores = document.querySelector('.active > .player-current-box > .player-current-score');
 		activeRoundScores.innerHTML = 0;
 		
 		roundScore = 0;
 
-		if (totalScore.innerHTML >= 100) {
-			alert('Winner');
-			resetScores();
-		};
-
-		togglePlayerTurn();
+		if (totalScore.innerHTML >= 10) {
+			displayWinner(); 
+		} else {
+			togglePlayerTurn();
+		}
 	});
 }
 
-function displayeWinner() {
-
+function displayWinner() {
+	document.querySelector('div:not(.active) > .player-name').innerHTML = 'Loser';
+	document.querySelector('.active > .player-name').innerHTML = '<strong>Winner!</strong>';
+	document.querySelector('.active').classList.remove('active');
+	diceImage.style.display = 'hidden';
 }
 
 // Functions
 rollDice();
-resetGame();
+newGame();
 holdRoundScore();
 
 
