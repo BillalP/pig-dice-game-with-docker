@@ -30,6 +30,7 @@ var roundScore = null;
 function newGame() {
 	newGameBtn.addEventListener('click', function() {
 		resetScores();
+		diceImage.style.display = 'block';
 	});
 }
 
@@ -81,7 +82,7 @@ function holdRoundScore() {
 		
 		roundScore = 0;
 
-		if (totalScore.innerHTML >= 100) {
+		if (totalScore.innerHTML >= 10) {
 			displayWinner(); 
 		} else {
 			togglePlayerTurn();
@@ -93,6 +94,7 @@ function displayWinner() {
 	document.querySelector('div:not(.active) > .player-name').innerHTML = 'Loser';
 	document.querySelector('.active > .player-name').innerHTML = '<strong>Winner!</strong>';
 	document.querySelector('.active').classList.remove('active');
+	diceImage.style.display = 'hidden';
 }
 
 // Functions
