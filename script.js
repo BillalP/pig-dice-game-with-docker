@@ -29,7 +29,7 @@ var diceNumber;
 var runningTotalScore = null;
 var roundScore = null;
 
-function resetGame() {
+function newGame() {
 	newGameBtn.addEventListener('click', function() {
 		resetScores();
 	});
@@ -94,13 +94,13 @@ function holdRoundScore() {
 	});
 }
 
-function displayeWinner() {
+function displayWinner() {
 
 }
 
 // Functions
 rollDice();
-resetGame();
+newGame();
 holdRoundScore();
 
 
