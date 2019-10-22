@@ -74,11 +74,12 @@ function rollDice() {
 
 function holdRoundScore() {
 	holdBtn.addEventListener('click', function() {
-		currentTotalScore = parseInt(document.querySelector('.active > .player-score').innerHTML);
-		runningTotalScore = roundScore + currentTotalScore;
-		console.log('runningTotalScore ' + runningTotalScore);
-
 		var totalScore = document.querySelector('.active > .player-score');
+
+		currentTotalScore = parseInt(totalScore.innerHTML);
+		runningTotalScore = roundScore + currentTotalScore;
+
+		
 		totalScore.innerHTML = runningTotalScore;
 		var activeRoundScores = document.querySelector('.active > .player-current-box > .player-current-score');
 		activeRoundScores.innerHTML = 0;
