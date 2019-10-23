@@ -1,16 +1,3 @@
-/*
-  
-  GAME RULES:
-
-- The game has 2 players, playing in rounds
-- In each turn, a player rolls a dice as many times as he whishes. Each result get added to his ROUND score
-- BUT, if the player rolls a 1, all his ROUND score gets lost. After that, it's the next player's turn
-- The player can choose to 'Hold', which means that his ROUND score gets added to his GLOBAL score. After that, it's 
-  the next player's turn
-- The first player to reach 100 points as a GLOBAL score, wins the game
-
-*/
-
 var newGameBtn = document.querySelector('.btn-new');
 var rollDiceBtn = document.querySelector('.btn-roll');
 var holdBtn = document.querySelector('.btn-hold');
@@ -21,6 +8,7 @@ var playerTwoPanel = document.querySelector('.player-1-panel');
 
 var playerTotalScores = document.querySelectorAll('.player-score');
 var playerRoundScores = document.querySelectorAll('.player-current-score');
+var activeRoundScores = document.querySelector('.active > .player-current-box > .player-current-score');
 
 var diceNumber;
 
@@ -31,6 +19,8 @@ function newGame() {
 	newGameBtn.addEventListener('click', function() {
 		resetScores();
 		diceImage.style.display = 'block';
+		rollDiceBtn.style.display = 'block';
+		holdBtn.style.display = 'block';
 	});
 }
 
@@ -55,14 +45,12 @@ function rollDice() {
 	rollDiceBtn.addEventListener('click', function() {
 		diceNumber = getRandomDiceNumber();
 		diceImage.src='./assets/dice-images/dice-' + diceNumber + '.png';
+		var activeRoundScores = document.querySelector('.active > .player-current-box > .player-current-score');
 		if (diceNumber !== 1) {
 			roundScore += diceNumber;
-
-			var activeRoundScores = document.querySelector('.active > .player-current-box > .player-current-score');
 			activeRoundScores.innerHTML = roundScore;
 		} else {
 			roundScore = 0;
-			var activeRoundScores = document.querySelector('.active > .player-current-box > .player-current-score');
 			activeRoundScores.innerHTML = roundScore;
 			togglePlayerTurn();
 		}
@@ -76,13 +64,11 @@ function holdRoundScore() {
 
 		runningTotalScore = roundScore + currentTotalScore;
 		totalScore.innerHTML = runningTotalScore;
-
-		var activeRoundScores = document.querySelector('.active > .player-current-box > .player-current-score');
 		activeRoundScores.innerHTML = 0;
 		
 		roundScore = 0;
 
-		if (totalScore.innerHTML >= 10) {
+		if (totalScore.innerHTML >= 100) {
 			displayWinner(); 
 		} else {
 			togglePlayerTurn();

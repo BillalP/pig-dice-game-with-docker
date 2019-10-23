@@ -136,9 +136,19 @@ i {
     transition: margin 0.3s;
 }
 
-.btn-new { top: 45px;}
-.btn-roll { top: 403px;}
-.btn-hold { top: 467px;}
+.btn-new { 
+    top: 45px;
+}
+
+.btn-roll { 
+    display: none;
+    top: 403px; 
+}
+
+.btn-hold { 
+    top: 467px;
+    display: none;
+}
 
 .dice {
     display: none;
