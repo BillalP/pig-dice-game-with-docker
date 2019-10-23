@@ -8,6 +8,7 @@ var playerTwoPanel = document.querySelector('.player-1-panel');
 
 var playerTotalScores = document.querySelectorAll('.player-score');
 var playerRoundScores = document.querySelectorAll('.player-current-score');
+var activeRoundScores = document.querySelector('.active > .player-current-box > .player-current-score');
 
 var diceNumber;
 
@@ -63,8 +64,6 @@ function holdRoundScore() {
 
 		runningTotalScore = roundScore + currentTotalScore;
 		totalScore.innerHTML = runningTotalScore;
-
-		var activeRoundScores = document.querySelector('.active > .player-current-box > .player-current-score');
 		activeRoundScores.innerHTML = 0;
 		
 		roundScore = 0;
