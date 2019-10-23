@@ -44,14 +44,12 @@ function rollDice() {
 	rollDiceBtn.addEventListener('click', function() {
 		diceNumber = getRandomDiceNumber();
 		diceImage.src='./assets/dice-images/dice-' + diceNumber + '.png';
+		var activeRoundScores = document.querySelector('.active > .player-current-box > .player-current-score');
 		if (diceNumber !== 1) {
 			roundScore += diceNumber;
-
-			var activeRoundScores = document.querySelector('.active > .player-current-box > .player-current-score');
 			activeRoundScores.innerHTML = roundScore;
 		} else {
 			roundScore = 0;
-			var activeRoundScores = document.querySelector('.active > .player-current-box > .player-current-score');
 			activeRoundScores.innerHTML = roundScore;
 			togglePlayerTurn();
 		}
@@ -71,7 +69,7 @@ function holdRoundScore() {
 		
 		roundScore = 0;
 
-		if (totalScore.innerHTML >= 10) {
+		if (totalScore.innerHTML >= 100) {
 			displayWinner(); 
 		} else {
 			togglePlayerTurn();
