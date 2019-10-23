@@ -1,4 +1,4 @@
-#Pig Dice Game
+Pig Dice Game
 ==============
 
 ## An old age popular dice game. The rules are:
