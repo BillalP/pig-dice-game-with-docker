@@ -1,7 +1,7 @@
 Pig Dice Game
 ==============
 
-## An old age popular dice game. The rules are:
+#### An old age popular dice game. The rules are:
 
 - The game has 2 players, playing in rounds
 - In each turn, a player rolls a dice as many times as they whish. Each result get added to their ROUND score
