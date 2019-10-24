@@ -64,7 +64,9 @@ function holdRoundScore() {
 
 		runningTotalScore = roundScore + currentTotalScore;
 		totalScore.innerHTML = runningTotalScore;
-		activeRoundScores.innerHTML = 0;
+		var activeRoundScore = document.querySelector('.active > .player-current-box > .player-current-score');
+
+		activeRoundScore.innerHTML = 0;
 		
 		roundScore = 0;
 
@@ -80,7 +82,7 @@ function displayWinner() {
 	document.querySelector('div:not(.active) > .player-name').innerHTML = 'Loser';
 	document.querySelector('.active > .player-name').innerHTML = '<strong>Winner!</strong>';
 	document.querySelector('.active').classList.remove('active');
-	diceImage.style.display = 'hidden';
+	diceImage.style.display = 'none';
 }
 
 // Functions
