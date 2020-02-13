@@ -7,7 +7,7 @@ Pig Dice Game
 - In each turn, a player rolls a dice as many times as they whish. Each result get added to their ROUND score
 - BUT, if the player rolls a 1, all their ROUND score is lost
 - Then it is the next player's turn
-- Players can choose to 'Hold', which means that their ROUND score is added to their TOTAL score. After that, it is 
+- Players can choose to 'hold', which means that their ROUND score is added to their TOTAL score. After that, it is 
   the next player's turn
 - The first player to reach 100 points as a TOTAL score, wins the game!
 
