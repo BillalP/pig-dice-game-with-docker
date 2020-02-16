@@ -9,6 +9,6 @@ Pig Dice Game
 - Then it is the next player's turn
 - Players can choose to 'hold', which means that their ROUND score is added to their TOTAL score. After that, it is 
   the next player's turn
-- The first player to reach 100 points as a TOTAL score, wins the game!
+- The first player to reach at least 100 points as a TOTAL score, wins the game!
 
 The frontend was produced by Jonas Schmedtmann (https://codingheroes.io/) as part of his Udemy course. I have developed all of the logic and made a few small changes to the HTML/CSS.
