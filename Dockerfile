@@ -1,8 +1,8 @@
 FROM node
 
-
-
 LABEL environment="development"
+
+EXPOSE 3000
 
 COPY . .
 
