@@ -1,0 +1,22 @@
+{
+  "name": "pig-dice-game-with-docker",
+  "version": "1.0.0",
+  "description": "Pig Dice Game ==============",
+  "main": "index.js",
+  "scripts": {
+    "start": "open-cli index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BillalP/pig-dice-game-with-docker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BillalP/pig-dice-game-with-docker/issues"
+  },
+  "homepage": "https://github.com/BillalP/pig-dice-game-with-docker#readme",
+  "dependencies": {
+    "open-cli": "^7.0.1"
+  }
+}
