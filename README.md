@@ -23,4 +23,6 @@ docker image ls
 
 # Start the Docker container.
 docker run -d pig-game
+
+# Open http://localhost:3000
 ```
