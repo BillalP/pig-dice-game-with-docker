@@ -1,10 +1,10 @@
 {
   "name": "pig-dice-game-with-docker",
   "version": "1.0.0",
-  "description": "Pig Dice Game ==============",
+  "description": "Pig Dice Game",
   "main": "index.js",
   "scripts": {
-    "start": "open-cli index.html"
+    "start": "http-server -p 3000 -f index.html"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/BillalP/pig-dice-game-with-docker#readme",
   "dependencies": {
-    "open-cli": "^7.0.1"
+    "http-server": "^14.1.1"
   }
 }
